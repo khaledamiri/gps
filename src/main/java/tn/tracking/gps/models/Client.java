@@ -1,8 +1,8 @@
 package tn.tracking.gps.models;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +21,7 @@ public class Client implements Serializable {
 	private String nameClt;
 
 	@OneToMany(mappedBy = "client")
-	private Set<Voiture> voitures = new HashSet<Voiture>(0);;
+	private List<Voiture> voitures = new ArrayList<Voiture>(0);;
 
 	public Client() {
 
@@ -48,18 +48,17 @@ public class Client implements Serializable {
 		this.nameClt = nameClt;
 	}
 
-	public Set<Voiture> getVoitures() {
+	public List<Voiture> getVoitures() {
 		return voitures;
 	}
 
-	public void setVoitures(Set<Voiture> voitures) {
+	public void setVoitures(List<Voiture> voitures) {
 		this.voitures = voitures;
 	}
 
 	@Override
 	public String toString() {
-		return "Client [id=" + id + ", nameClt=" + nameClt + ", voitures="
-				+ voitures + "]";
+		return "Client [id=" + id + ", nameClt=" + nameClt + ", voitures=" + voitures + "]";
 	}
 
 	@Override
@@ -68,8 +67,7 @@ public class Client implements Serializable {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nameClt == null) ? 0 : nameClt.hashCode());
-		result = prime * result
-				+ ((voitures == null) ? 0 : voitures.hashCode());
+		result = prime * result + ((voitures == null) ? 0 : voitures.hashCode());
 		return result;
 	}
 
